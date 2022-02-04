@@ -1,22 +1,19 @@
 #include <stdio.h>
 
 int main () {
-
     int numero, contador, soma, maiornum, menornum;
     float media;
 
     printf("Digite o numero: ");
     scanf("%d", &numero);
-    maiornum = numero;
-    menornum = numero;
-    soma = numero;
+    maiornum = soma = menornum = numero;
     contador = 1;
 
     while (numero != 999) {
         printf("Digite o numero: ");
         scanf("%d", &numero);
         contador++;
-        soma = soma+numero;
+        soma += numero;
 
         if (numero > maiornum) {
             maiornum = numero;
