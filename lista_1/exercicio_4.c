@@ -31,5 +31,4 @@ int main () {
         contador++;
         printf("%.4f\n", senx);
     }
-
 }
