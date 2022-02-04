@@ -64,7 +64,7 @@ int main () {
 
         printf("\nDeseja realizar outra operacao? sim [1] ou nao [0]\n");
         scanf("%d", &validacao);
-    } while (validacao != 0);
+    } while (validacao != 0 && validacao == 1);
 }
 
 /* Professora, não consegui usar os limpatela, por isso a execução está um pouco poluída. */
