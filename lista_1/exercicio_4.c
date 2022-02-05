@@ -24,7 +24,9 @@ int main () {
             fatorneg = fatorneg+4;
         }
 
-        /* Ainda falta implementar o denominador fatorial. */
+        /* Ainda falta implementar o denominador fatorial.
+        
+        Usar a ideia de colocar a equação sendo multiplicada por (-1)^i  */
 
         contadorpos = contadorpos+4;
         contadorneg = contadorneg+4;
