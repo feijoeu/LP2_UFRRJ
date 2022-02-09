@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+// não adicionei comentários porque a estrutura do programa é bem simples.
+
 int main () {
     float num1, num2;
     int validacao, selecionador;

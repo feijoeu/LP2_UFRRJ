@@ -9,12 +9,14 @@ int main () {
     maiornum = soma = menornum = numero;
     contador = 1;
 
+    // while referente a leitura dos valores.
     while (numero != 999) {
         printf("Digite o numero: ");
         scanf("%d", &numero);
         contador++;
         soma += numero;
 
+        // if's referentes a atribuição do maior e do menor valor.
         if (numero > maiornum) {
             maiornum = numero;
         }
