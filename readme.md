@@ -1,4 +1,4 @@
-# LP2-UFRRJ
+# 👽 LP2-UFRRJ
 
 > Repositório dedicado aos trabalhos feitos durante a disciplina de *LP2* do curso de *Sistemas de Informação* da *UFRRJ*.
 
