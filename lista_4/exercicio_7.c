@@ -5,7 +5,7 @@ int main () {
     int cont = 1;
 
     printf("Insira uma frase: ");
-    fgets(frase, sizeof(frase), stdin); // Professora, como funciona essa leitura? vi num site mas não entendi de fato.
+    gets(frase); // Professora, como funciona essa leitura? vi num site mas não entendi de fato.
 
     for (int i = 0; i < 100; i++) 
     {
