@@ -5,9 +5,13 @@
 int maiusculas (char *x) {
     int i = 0;
 
-    if (*x >= 97 && *x <= 122 )
+    while (*(x+i) != '\0')
     {
-        *x -= 32;
+        if (*(x+i) >= 97 && *(x+i) <= 122 ) 
+        {
+            *(x+i) -= 32;
+        }    
+        i++;
     }
 }
 
@@ -24,10 +28,14 @@ int capitaliza (char *x) {
     
     Essa parte do código não está funcionando, está tornando todas as vogais maiúsculas. */
 
-    if (x[(i-1)] == 32 && x[i] >= 97 && x[i] <= 122) 
-    {
-        *x -= 32;
-    }
+    while (*(x+i) != '\0')
+        {
+            if (x[(i-1)] == 32 && x[i] >= 97 && x[i] <= 122) 
+            {
+                *x -= 32;
+            }
+            i++;
+        }
 }
 
 int compara (char *x, char *y) {
@@ -62,18 +70,15 @@ int main () {
 
     // item a da lista.
     printf("\n1.a. = ");
-    while (FRASE1[contador] != '\0')
-    {
-        maiusculas(&FRASE1[contador]);
-
-        printf("%c", FRASE1[contador]);
-        contador++;
-    }
+    maiusculas(&FRASE1[contador]);
+    printf("%s\n ", FRASE1);
 
     // item b da lista (pendente).
 
     // item c da lista.
     contador = 0;
+    capitaliza(&FRASE2[contador]);
+    printf("%s", FRASE2);
     printf("\n\n1.c. = ");
     while (FRASE2[contador] != '\0')
     {
@@ -85,7 +90,7 @@ int main () {
     printf("\nA quantidade de caracteres da string e: %d", contador);
 
     // item d da lista.
-    contador = 0;
+    contador = 0;   
     kmain = compara(FRASE1, FRASE2);
     printf("\n\n1.d: %d", kmain);
 }
