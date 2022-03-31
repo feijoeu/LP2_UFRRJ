@@ -4,63 +4,50 @@
 
 int zeraPares (int *x) {
 
-    if ((*x)%2 == 0)
-    { 
-        *x = 0;
+    for (int i = 0; i < 30; i++)
+    {
+        *(x+i) = i;
+
+        if (*(x+i)%2 == 0)
+        { 
+            *(x+i) = 0;
+        }
+
+        printf("%d ", *(x+i));
     }
 }
 
 int dobra (int *x) {
 
-    *x = 2*(*x);
+    for (int i = 0; i < 30; i++)
+    {
+        *(x+i) = i;
+        *(x+i) = 2*(*(x+i));
+
+        printf("%d ", *(x+i));
+    }
 }
 
 int soma (int *x, int *y) {
-    *x += *y;
+
+    for (int i = 0; i < 30; i++)
+    {
+        *(x+i) = *(y+i) = i;
+        *(x+i) += *(y+i);
+
+        printf("%d ", *(x+i));
+    }   
 }
 
 int main () {
     int lista1[30], lista2[30], K;
 
-    // item a.
-    printf("Item a: ");
-    for (int i = 0; i <= 30; i++)
-    {
-        lista1[i] = i;
-    }
-    
-    for (int i = 0; i <= 30; i++)
-    {
-        zeraPares (&lista1[i]);
-        printf("%d ", lista1[i]);
-    }
+    printf("\nItem a: ");
+    zeraPares(lista1); // item a.
 
-    // item b.
     printf("\nItem b: ");
-    for (int i = 0; i <= 30; i++)
-    {
-        lista1[i] = i;
-    }
-    
-    for (int i = 0; i <= 30; i++)
-    {
-        dobra (&lista1[i]);
-        printf("%d ", lista1[i]);
-    }
+    dobra (lista1); // item b.
 
-    //item c.
     printf("\nItem c: ");
-    for (int i = 0; i <= 30; i++)
-    {
-        lista1[i] = i;
-        lista2[i] = i;   
-    }
-    
-    for (int i = 0; i <= 30; i++)
-    {
-        soma (&lista1[i], &lista2[i]);
-        printf("%d ", lista1[i]);
-    }
+    soma (lista1, lista2); //item c.
 }
-
-// Colocar os controles de loop dentro das funções.
