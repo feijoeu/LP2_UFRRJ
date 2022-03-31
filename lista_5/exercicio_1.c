@@ -1,98 +1,125 @@
-#include <stdio.h>
+#include <stdio.h> 
 #include <stdlib.h>
-#include <string.h>
+#include <math.h>
 
-int maiusculas (char *x) {
-    int i = 0;
-
-    while (*(x+i) != '\0')
+void maiusc (char *frase) {
+    for (int i = 0; i < 30; i++)
     {
-        if (*(x+i) >= 97 && *(x+i) <= 122 ) 
+        if (*(frase+i) >= 97 && *(frase+i) <= 122 ) 
         {
-            *(x+i) -= 32;
-        }    
-        i++;
-    }
-}
-
-int concatena (char *x, char *y) {
-    // Não entendi.
-}
-
-int capitaliza (char *x) {  
-    int i = 0;
-
-    /* if (x[0] >= 97 && x[0] <= 122) {
-        *x -= 32;
-    } 
-    
-    Essa parte do código não está funcionando, está tornando todas as vogais maiúsculas. */
-
-    while (*(x+i) != '\0')
-        {
-            if (x[(i-1)] == 32 && x[i] >= 97 && x[i] <= 122) 
-            {
-                *x -= 32;
-            }
-            i++;
+            *(frase+i) -= 32;
         }
+    }
 }
 
-int compara (char *x, char *y) {
-    int tamx, tamy, r;
+void concatena (char *frase1, char *frase2, char *frases_concatenadas) {
+    char frase_subs1[30], frase_subs2[30];
+    int k1 = 0, k2 = 0;
 
-    tamx = strlen(x);
-    tamy = strlen(y);
-
-    if (tamx < tamy) 
-    {   
-        r = -1;
-        return r;
-    } else if (tamx == tamy) 
+    for (int i = 0; i < 30; i++) 
     {
-        r = 0;
-        return r;
+        frase_subs1[i] = *(frase1+i);
+        *(frase1+i) = 0;
+        if (frase_subs1[i] != 32)
+        {
+            *(frase1+k1) = frase_subs1[i];
+            k1++;
+        } // Elimina todos os espaços da primeira frase.
+    }
+
+    k1 = 0;
+
+    for (int i = 0; i < 30; i++) 
+    {
+        frase_subs2[i] = *(frase2+i);
+        *(frase2+i) = 0;
+        if (frase_subs2[i] != 32)
+        {
+            *(frase2+k1) = frase_subs2[i];
+            k1++;
+        } // Elimina todos os espaços da segunda frase. 
+    }
+
+    k1 = 0;
+
+    while (*(frase1+k1) != '\0')
+    {
+        *(frases_concatenadas+k1) = *(frase1+k1);
+        k1++;
+    }
+    while (*(frase2+k2) != '\0')
+    {
+        *(frases_concatenadas+k1) = *(frase2+k2);
+        k2++;
+        k1++;
+    } // Os whiles servem pra fazer a atribuição dos caracteres na string relativa a concatenacao.
+
+    for (int i = 0; i < 30; i++) 
+    {
+        *(frase1+i) = frase_subs1[i];
+        *(frase2+i) = frase_subs2[i];
+    } // Retornando os valores originais aos caracteres das frases.
+}
+
+void capitaliza (char *frase) {
+    if (*frase >= 97 && *frase <= 122)
+    {
+        *frase -= 32;
+    } // Capitalizacao da primeira letra.
+    
+    for (int i = 0; i < 30; i++)
+    {
+        if (*(frase+i-1) == 32 && *(frase+i) >= 97 && *(frase+i) <= 122) 
+            {
+                *(frase+i) -= 32;
+            }
+    } // Capitalizacao das demais letras.
+}
+
+int compara (char *frase1, char *frase2) {
+    int k, cont1, cont2;
+    cont1 = cont2 = 0;
+    
+    while (*(frase1+cont1) != '\0')
+    {
+        cont1++;
+    } // Calcula o tamanho da frase 1.
+
+    while (*(frase2+cont2) != '\0')
+    {
+        cont2++;
+    } // Calcula o tamanho da frase 2.
+
+    if (cont1 > cont2)
+    {
+        k = 1;
+    } else if (cont1 < cont2)
+    {
+        k = -1;
     } else 
-    {    
-        r = 1;
-        return r;
-    }
-}
-
-int main () {
-    char FRASE1[30], FRASE2[30];
-    int contador = 0, kmain = 0;
-
-    printf("Digite uma frase de ate 30 caracteres:\n");
-    gets(FRASE1);
-    printf("Digite mais uma frase de ate 30 caracteres:\n");
-    gets(FRASE2);
-
-    // item a da lista.
-    printf("\n1.a. = ");
-    maiusculas(&FRASE1[contador]);
-    printf("%s\n ", FRASE1);
-
-    // item b da lista (pendente).
-
-    // item c da lista.
-    contador = 0;
-    capitaliza(&FRASE2[contador]);
-    printf("%s", FRASE2);
-    printf("\n\n1.c. = ");
-    while (FRASE2[contador] != '\0')
     {
-        capitaliza(&FRASE2[contador]);
-
-        printf("%c", FRASE2[contador]);
-        contador++;
+        k = 0;
     }
-    printf("\nA quantidade de caracteres da string e: %d", contador);
-
-    // item d da lista.
-    contador = 0;   
-    kmain = compara(FRASE1, FRASE2);
-    printf("\n\n1.d: %d", kmain);
+    
+    return k;
 }
 
-// Utilizar esse while nos outros programas.
+void main () {
+    char FRASE1[30], FRASE2[30], FRASES_CONCATENADAS[60];
+
+    printf("Digite a primeira frase: ");
+    gets (FRASE1);
+    printf("Digite a segunda frase: ");
+    gets (FRASE2);
+
+    maiusc(FRASE1);
+    printf("\n\n1.a. = %s\n", FRASE1);
+
+    concatena(FRASE1, FRASE2, FRASES_CONCATENADAS);
+    printf("1.b. = %s\n", FRASES_CONCATENADAS);
+
+    capitaliza(FRASE2);
+    printf("1.c. = %s\n", FRASE2);
+
+    printf("1.d. = %d", compara(FRASE1, FRASE2));
+}
