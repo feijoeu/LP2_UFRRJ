@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 int fatorial (int x) {
-    int fator;
-    fator = x;
+    int fator = x;
     
     if (fator > 1) {
         fator = x*fatorial(x-1);
-    } else {
+    } else 
+    {
         return (1);
     }
 
@@ -16,9 +16,11 @@ int fatorial (int x) {
 float xelevy (float x, float y) {
     float total;
 
-    if (y != 0) {
+    if (y != 0) 
+    {
         total = x*xelevy(x, y-1);
-    } else {
+    } 
+    else {
         return (1);
     }
 
@@ -126,7 +128,6 @@ int main () {
             for (int i = 1; i <= x; i++) {
                 printf (" %d ", seqfibonacci(i));
             }
-
             break;
         default:
             printf("Voce nao digitou um numero valido ;-;\n");
