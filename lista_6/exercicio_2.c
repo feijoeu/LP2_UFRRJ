@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Professora, não inicializei as variáveis como "notas" e "faltas" porque não foi solicitado na lista e daria muito trabalho.
+
 struct aluno {
     char nomealuno[40], curso[40];
     int idade, cr, matricula;
@@ -18,12 +20,14 @@ struct disciplina {
 };
 
 void main () {
-    int k = 0, k_case2 = 0, k_case3 = 0;
+    int k, k_case2, k_case3, k_case5;
+    float cr_case5;
     struct disciplina disciplina1;
+    k = k_case2 = k_case3 = k_case5 = cr_case5 = 0;
 
     do
     {
-        printf("------ MENU DE OPCOES ------\n");
+        printf("\n------ MENU DE OPCOES ------\n");
         printf("Criar Disciplina         [1]\n");
         printf("Incluir Aluno            [2]\n");
         printf("Excluir Aluno            [3]\n");
@@ -72,16 +76,50 @@ void main () {
 
                 break;
             case 4:
-                /* code */
+                for (int i = 0; i <= 40; i++) {
+                    if (disciplina1.turma[i].aluno1.matricula != 0) {
+                        printf("\n-- DADOS DO ALUNO --\n");
+                        printf("Nome: %s\n", disciplina1.turma[i].aluno1.nomealuno);
+                        printf("Matricula: %d\n", disciplina1.turma[i].aluno1.matricula);
+                        printf("Idade: %d\n", disciplina1.turma[i].aluno1.idade);
+                        printf("CR: %d\n", disciplina1.turma[i].aluno1.cr);
+                        printf("Nota: %d\n", disciplina1.turma[i].nota);
+                        printf("Faltas: %d\n", disciplina1.turma[i].faltas);
+                    }
+                }
+
                 break;
             case 5:
-                /* code */
+                for (int i = 0; i <= 40; i++) {
+                    if (disciplina1.turma[i].aluno1.matricula != 0)
+                    {
+                        cr_case5 += disciplina1.turma[i].nota;
+                        k_case5++;
+                    }
+                }
+                cr_case5 = cr_case5/k_case5;
+                printf("\nO cr medio da disciplina e: %d", cr_case5);
+                
                 break;
             case 6:
-                /* code */
+                for (int i = 0; i <= 40; i++) {
+                    if (disciplina1.turma[i].aluno1.matricula != 0) {
+                        printf("\n-- BOLETIM DO ALUNO --\n");
+                        printf("Nome: %s\n", disciplina1.turma[i].aluno1.nomealuno);
+                        printf("Matricula: %d\n", disciplina1.turma[i].aluno1.matricula);
+                        printf("Nota: %d\n", disciplina1.turma[i].nota);
+                        printf("Faltas: %d\n", disciplina1.turma[i].faltas);
+                    }
+                }
+
                 break;
             case 7:
-                /* code */
+                disciplina1.codigo = 0;
+                for (int i = 0; i <= 40; i++) {
+                    disciplina1.nome[i] = '0';
+                }
+                printf("\nDisciplina fechada");
+
                 break;
             case 8:
                 printf("\nObrigado por usar nossa calculadora!");
