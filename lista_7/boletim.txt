@@ -1,0 +1,18 @@
+
+-- BOLETIM DO ALUNO --
+Nome: S
+Matricula: 123456
+Nota: 7209065
+Faltas: 6029413
+
+-- BOLETIM DO ALUNO --
+Nome: 
+Matricula: 321654
+Nota: 6488175
+Faltas: 7077985
+
+-- BOLETIM DO ALUNO --
+Nome: Î
+Matricula: 193782
+Nota: 152
+Faltas: 13435084
