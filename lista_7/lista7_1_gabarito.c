@@ -153,7 +153,7 @@ void fecharDisciplina (tpDisc * disc) {
 		disc->turma[i].aluno.matricula = 0;	
 }
 
-main() {
+main () {
 	tpDisc disc; 
 	tpAluno aluno;
 	char nomeDisc[30];
