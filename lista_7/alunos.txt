@@ -1,3 +1,1 @@
-Matricula = 123456
-Matricula = 321654
-Matricula = 193782
+Joao 123456 20 9.5
